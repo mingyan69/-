@@ -6,29 +6,31 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('ok')
+    return HttpResponse('登入页面')
 
 
+def book(request, cat_id, detail_id):
+    print(cat_id, detail_id)
+    return HttpResponse('我喜欢看书')
 
+# from book.models import BookInfo
+#
+# book=BookInfo.objects.get(id=2)
+# book.peopelinfo_set.all()
+# from book.models import PeopelInfo
+# people = PeopelInfo.objects.get(id=6)
+# people.book
 
-from book.models import BookInfo
-
-book = BookInfo.objects.get(id=2)
-
-book.peopelinfo_set.all()
-
-
-
-
-from book.models import PeopelInfo
-
-person = PeopelInfo.objects.get(id=6)
-person.book
-
-from book.models import PeopelInfo
-from django.core.paginator import Paginator
-people = PeopelInfo.objects.all()
-paginator=Paginator(object_list=people,per_page=2)
-persons = paginator.page(2)
-persons.object_list
-paginator.num_pages
+# BookInfo.objects.filter(peopelinfo__description__contains='八')
+    qury_string=request.GET
+    a = qury_string['a']
+    b = qury_string('b')
+    print(a,b)
+def get(requst):
+    a = requst.GET.get('a')
+    b = requst.GET.get('b')
+    alist = requst.GET.getlist('a')
+    print(a)
+    print(b)
+    print(alist)
+    return  HttpResponse('OK')
