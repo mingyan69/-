@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>>
+</head>
+<body>
+
+
+<div id="app">
+	<a href="#">{{msg}}</a>
+	<h1>{{name}}</h1>
+	<a v-bind:href="home">正确访问传智首页</a>
+	<hr>
+	<a href="#" v-if="islogin">是否看得见</a>
+	<span v-if="islogin">个人中心</span>
+	<span v-else>登入</span>
+	<span v-if="level === 1">国王</span>
+	<span v-else-if="level === 2">皇亲</span>
+	<span v-else-if="level === 3">国戚</span>
+	<span v-else-if="level === 4">大臣</span>
+	<span v-else>平民</span>
+	<hr>
+	<h1 v-if="seen">if</h1>
+	<h1 v-show="seen">show</h1>
+
+</div>
+
+</body>
+</html>
